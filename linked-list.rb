@@ -2,6 +2,8 @@
 # NODE -> contains a value and a pointer to (next_node)
 # LinkedList -> This class holds the linked list functions - adding a node, traversing and displaying the linked list
 
+# not a good solution if we had a million elements.
+
 class Node
    attr_accessor :value, :next_node
 
@@ -44,6 +46,10 @@ class LinkedList
        else
            # ... x -> y -> z
            # Suppose y is the value to be deleted, you need to reshape the above list to :
+
+
+           # short circut evaluation: definition.
+           #FALSE AND anything is false.
            #   ... x->z
            previous = @head
            current = @head.next_node
@@ -63,8 +69,14 @@ class LinkedList
        # Traverse through the list till you hit the "nil" at the end
        current = @head
        full_list = []
+
+       #while current head is ()
+       # if there is something in it.
        while current.next_node != nil
+         #full list is going to increment.
+         #each time  and convert it to string
            full_list += [current.value.to_s]
+
            current = current.next_node
        end
        full_list += [current.value.to_s]
@@ -82,8 +94,16 @@ class LinkedList
 
    def size
      return @size
+     # newb way to solve this:
+    #  current = @head
+    #  total - 0
+    #  while current.next_node != nil
+    #    current = current.next_node
+    #    total += 1
+    #  end
+    #  return total
    end
-
+# assume the maximum number to check your code. Make it the first element.
    def max
      return nil if @size == 0
      max = @head.value
@@ -95,6 +115,31 @@ class LinkedList
        current = current.next_node
      end
      return max
+   end
+
+
+   def sort
+     current = @head
+     full_list = []
+
+     #while current head is ()
+     # if there is something in it.
+     while current.next_node != nil
+       #full list is going to increment.
+       #each time  and convert it to string
+         full_list += [current.value.to_s]
+
+         current = current.next_node
+     end
+     full_list += [current.value.to_s]
+     full_list.sort
+
+     full_list.each do |item|
+       ll.add(item)
+     end
+
+      return ll
+
    end
 
 end

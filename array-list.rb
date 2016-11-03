@@ -2,10 +2,13 @@
 
 class ArrayList
   def initialize
+    # native array structure
     @storage = [nil,nil,nil,nil,nil]
     @size = 0
   end
 
+  # method that adds it to list.
+  # is this sorting in place?
   def add(value)
     @storage[@size] = value
     @size += 1
@@ -51,5 +54,14 @@ class ArrayList
   def empty?
     @size == 0
   end
+
+  def sort
+    @storage[0..size].sort
+  end
+
+  def reverse
+    @storage[0..@size].reverse
+  end
+
 
 end
